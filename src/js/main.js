@@ -47,8 +47,11 @@ function getFrame(){
     icon_money.push(new_money);
   }
 
-  icon_money.forEach(element => {
+  icon_money.forEach((element, i, o)=> {
     element.y++;
+    if(element.y > canvas.height){
+      o.splice(i,1);
+    }
     element.draw();
   });
   icon_man.draw();
