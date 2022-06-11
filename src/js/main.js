@@ -1,4 +1,8 @@
+const DEFAULT_TIME = 3;
+
 var canvas = document.querySelector('#canvas');
+var leftTime = document.querySelector('#leftTime');
+var score = document.querySelector('#score');
 var ctx = canvas.getContext('2d');
 var keydown = {
   ArrowUp : false,
@@ -7,12 +11,8 @@ var keydown = {
   ArrowRight : false
 };
 
-canvas.width = window.innerWidth - 100;
-canvas.height = window.innerHeight - 100;
-
-
-
-
+canvas.width = window.innerWidth / 2;
+canvas.height = window.innerHeight / 2;
 var icon_man = {
   x : canvas.width / 2,
   y : canvas.height - 50,
@@ -23,8 +23,6 @@ var icon_man = {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
-
-icon_man.draw();
 
 class Money{
   constructor(x, y){
@@ -39,11 +37,27 @@ class Money{
   }
 }
 
-var icon_money = [];
+var GameInfo = {
+  score : 0,
+  leftTime : DEFAULT_TIME,
+}
+function showGameInfo(){
+  leftTime.innerHTML = --GameInfo.leftTime;
+  score.innerHTML = GameInfo.score;
+  if(GameInfo.leftTime == 0){
+    stopGame();
+  }
+}
 
+var icon_money = [];
+var animation;
 var timer = 0;
+let gameTimer = setInterval(showGameInfo, 1000);
+
+getFrame();
+
 function getFrame(){
-  requestAnimationFrame(getFrame);
+  animation = requestAnimationFrame(getFrame);
   ctx.clearRect(0,0,canvas.width,canvas.height); 
 
   timer++;
@@ -65,8 +79,6 @@ function getFrame(){
   icon_man.draw();
 }
 
-getFrame();
-
 function keyMove(){
   if(keydown.ArrowLeft == true){
     icon_man.x-=2;
@@ -80,6 +92,11 @@ function keyMove(){
       icon_man.x = (canvas.width-icon_man.width);
     }
   }
+}
+
+function stopGame(){
+  clearInterval(gameTimer);
+  cancelAnimationFrame(animation);
 }
 
 document.addEventListener('keydown', (e) => {
