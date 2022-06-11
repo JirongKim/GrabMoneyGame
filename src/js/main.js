@@ -1,4 +1,6 @@
-const DEFAULT_TIME = 3;
+const DEFAULT_TIME = 10;
+const man_velocity = 3;
+const money_velocity = 5;
 
 var canvas = document.querySelector('#canvas');
 var leftTime = document.querySelector('#leftTime');
@@ -25,9 +27,9 @@ var icon_man = {
 }
 
 class Money{
-  constructor(x, y){
-    this.x = 300;
-    this.y = 10;
+  constructor(x, y = 10){
+    this.x = x;
+    this.y = y;
     this.width = 50;
     this.height = 50;
   }
@@ -63,13 +65,13 @@ function getFrame(){
   timer++;
   if(timer == 60){
     timer = 0;
-    var new_money = new Money();
+    var new_money = new Money(getRandomInt());
     icon_money.push(new_money);
   }
 
   icon_money.forEach((element, i, o)=> {
-    element.y++;
-    if(element.y > canvas.height){
+    element.y+=money_velocity;
+    if(element.y > canvas.height || collisionCheck(element)){
       o.splice(i,1);
     }
     element.draw();
@@ -79,15 +81,33 @@ function getFrame(){
   icon_man.draw();
 }
 
+function collisionCheck(element){
+  var comX;
+  if(icon_man.x > element.x){
+    comX = icon_man.x - (element.x+element.width);
+  }
+  else{
+    comX = element.x - (icon_man.x+icon_man.width);
+  }
+  var comY = icon_man.y - (element.y+element.height);
+  console.log("comX : " + comX);
+  console.log("comY : " + comY);
+  if(comX <=0 && comY <= 0){
+    GameInfo.score++;
+    return true;
+  }
+  return false;
+}
+
 function keyMove(){
   if(keydown.ArrowLeft == true){
-    icon_man.x-=2;
+    icon_man.x-=man_velocity;
     if(icon_man.x < 0){
       icon_man.x = 0;
     }
   }
   if(keydown.ArrowRight == true){
-    icon_man.x+=2;
+    icon_man.x+=man_velocity;
     if(icon_man.x > (canvas.width-icon_man.width)){
       icon_man.x = (canvas.width-icon_man.width);
     }
@@ -108,3 +128,9 @@ document.addEventListener('keyup', (e) => {
   e = e || window.event;
   keydown[e.key] = false;
 })
+
+function getRandomInt(min = 0, max = canvas.width) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+}
