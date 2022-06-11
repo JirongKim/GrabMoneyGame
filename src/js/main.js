@@ -17,8 +17,8 @@ var keydown = {
 var man_image = new Image();
 man_image.src = './src/img/man.png';
 
-canvas.width = window.innerWidth / 2;
-canvas.height = window.innerHeight / 2;
+canvas.width = 500;
+canvas.height = 500;
 var icon_man = {
   x : canvas.width / 2,
   y : canvas.height - 64,
