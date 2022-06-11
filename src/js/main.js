@@ -15,7 +15,7 @@ var keydown = {
 };
 
 var man_image = new Image();
-man_image.src = '../src/img/man.png';
+man_image.src = './src/img/man.png';
 
 canvas.width = window.innerWidth / 2;
 canvas.height = window.innerHeight / 2;
@@ -32,7 +32,7 @@ var icon_man = {
 }
 
 var money_image = new Image();
-money_image.src = '../src/img/money.png';
+money_image.src = './src/img/money.png';
 class Money{
   constructor(x, y = 10){
     this.x = x;
