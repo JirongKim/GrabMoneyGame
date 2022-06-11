@@ -1,6 +1,7 @@
 const DEFAULT_TIME = 10;
 const man_velocity = 3;
 const money_velocity = 5;
+const createMoney_velocity = 30;
 
 var canvas = document.querySelector('#canvas');
 var leftTime = document.querySelector('#leftTime');
@@ -13,29 +14,36 @@ var keydown = {
   ArrowRight : false
 };
 
+var man_image = new Image();
+man_image.src = '../src/img/man.png';
+
 canvas.width = window.innerWidth / 2;
 canvas.height = window.innerHeight / 2;
 var icon_man = {
   x : canvas.width / 2,
-  y : canvas.height - 50,
-  width : 50,
-  height : 50,
+  y : canvas.height - 64,
+  width : 64,
+  height : 64,
   draw(){
-    ctx.fillStyle = 'Green';
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    //ctx.fillStyle = 'Green';
+    //ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(man_image, this.x, this.y, this.width, this.height);
   }
 }
 
+var money_image = new Image();
+money_image.src = '../src/img/money.png';
 class Money{
   constructor(x, y = 10){
     this.x = x;
     this.y = y;
-    this.width = 50;
-    this.height = 50;
+    this.width = 32;
+    this.height = 32;
   }
   draw(){
-    ctx.fillStyle = 'Red';
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    //ctx.fillStyle = 'Red';
+    //ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(money_image, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -60,10 +68,10 @@ getFrame();
 
 function getFrame(){
   animation = requestAnimationFrame(getFrame);
-  ctx.clearRect(0,0,canvas.width,canvas.height); 
+  ctx.clearRect(0,0,canvas.width,canvas.height);
 
   timer++;
-  if(timer == 60){
+  if(timer == createMoney_velocity){
     timer = 0;
     var new_money = new Money(getRandomInt());
     icon_money.push(new_money);
@@ -90,8 +98,8 @@ function collisionCheck(element){
     comX = element.x - (icon_man.x+icon_man.width);
   }
   var comY = icon_man.y - (element.y+element.height);
-  console.log("comX : " + comX);
-  console.log("comY : " + comY);
+  //console.log("comX : " + comX);
+  //console.log("comY : " + comY);
   if(comX <=0 && comY <= 0){
     GameInfo.score++;
     return true;
