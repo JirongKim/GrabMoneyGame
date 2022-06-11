@@ -1,5 +1,11 @@
 var canvas = document.querySelector('#canvas');
 var ctx = canvas.getContext('2d');
+var keydown = {
+  ArrowUp : false,
+  ArrowDown : false,
+  ArrowLeft : false,
+  ArrowRight : false
+};
 
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
@@ -54,17 +60,27 @@ function getFrame(){
     }
     element.draw();
   });
+
+  keyMove();
   icon_man.draw();
 }
 
 getFrame();
 
-var keydown = {
-  ArrowUp : false,
-  ArrowDown : false,
-  ArrowLeft : false,
-  ArrowRight : false
-};
+function keyMove(){
+  if(keydown.ArrowLeft == true){
+    icon_man.x-=2;
+    if(icon_man.x < 0){
+      icon_man.x = 0;
+    }
+  }
+  if(keydown.ArrowRight == true){
+    icon_man.x+=2;
+    if(icon_man.x > (canvas.width-icon_man.width)){
+      icon_man.x = (canvas.width-icon_man.width);
+    }
+  }
+}
 
 document.addEventListener('keydown', (e) => {
   e = e || window.event;
