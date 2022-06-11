@@ -58,3 +58,20 @@ function getFrame(){
 }
 
 getFrame();
+
+var keydown = {
+  ArrowUp : false,
+  ArrowDown : false,
+  ArrowLeft : false,
+  ArrowRight : false
+};
+
+document.addEventListener('keydown', (e) => {
+  e = e || window.event;
+  keydown[e.key] = true;
+})
+
+document.addEventListener('keyup', (e) => {
+  e = e || window.event;
+  keydown[e.key] = false;
+})
