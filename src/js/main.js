@@ -1,6 +1,6 @@
 const DEFAULT_TIME = 10;
-const man_velocity = 3;
-const money_velocity = 5;
+const man_velocity = 20;
+const money_velocity = 10;
 const createMoney_velocity = 30;
 
 var canvas = document.querySelector('#canvas');
@@ -102,6 +102,7 @@ function collisionCheck(element){
   //console.log("comY : " + comY);
   if(comX <=0 && comY <= 0){
     GameInfo.score++;
+    score.innerHTML = GameInfo.score;
     return true;
   }
   return false;
