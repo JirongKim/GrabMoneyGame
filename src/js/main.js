@@ -1,4 +1,4 @@
-const DEFAULT_TIME = 10;
+const DEFAULT_TIME = 3;
 const man_velocity = 20;
 const money_velocity = 10;
 const createMoney_velocity = 30;
@@ -27,17 +27,20 @@ man_image.src = './src/img/man.png';
 
 canvas.width = 500;
 canvas.height = 500;
-var icon_man = {
-  x : canvas.width / 2,
-  y : canvas.height - 64,
-  width : 64,
-  height : 64,
+class Man{
+  constructor(){
+    this.x = canvas.width / 2;
+    this.y = canvas.height - 64;
+    this.width = 64;
+    this.height = 64;
+  }
   draw(){
     //ctx.fillStyle = 'Green';
     //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(man_image, this.x, this.y, this.width, this.height);
   }
 }
+var icon_man = new Man();
 
 var money_image = new Image();
 money_image.src = './src/img/money.png';
@@ -58,6 +61,7 @@ class Money{
 var GameInfo = {
   score : 0,
   leftTime : DEFAULT_TIME,
+  isPlaying : false,
 }
 function showGameInfo(){
   leftTime.innerHTML = --GameInfo.leftTime;
@@ -137,6 +141,11 @@ function keyMove(){
 function stopGame(){
   clearInterval(gameTimer);
   cancelAnimationFrame(animation);
+  GameInfo.isPlaying = false;
+  GameInfo.score = 0;
+  GameInfo.leftTime = DEFAULT_TIME;
+  icon_money = [];
+  icon_man = new Man();
 }
 
 document.addEventListener('keydown', (e) => {
@@ -148,7 +157,7 @@ document.addEventListener('keyup', (e) => {
   e = e || window.event;
   keydown[e.key] = false;
   console.log(e.key);
-  if(e.key == " "){ gameStart(); }
+  if(e.key == " "){ if(GameInfo.isPlaying == false) { GameInfo.isPlaying = true; gameStart(); } }
 })
 
 function getRandomInt(min = 0, max = canvas.width) {
