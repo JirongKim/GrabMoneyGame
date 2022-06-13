@@ -11,13 +11,15 @@ var keydown = {
   ArrowUp : false,
   ArrowDown : false,
   ArrowLeft : false,
-  ArrowRight : false
+  ArrowRight : false,
+  " " : false
 };
 
 // var audio = new Audio('./src/music/main_bgm.mp3');
 var audio = new Audio();
 audio.src = './src/music/main_bgm.mp3';
-audio.play();
+//audio.play();
+audio.volume = 0.1;
 audio.loop = true;
 
 var man_image = new Image();
@@ -68,9 +70,12 @@ function showGameInfo(){
 var icon_money = [];
 var animation;
 var timer = 0;
-let gameTimer = setInterval(showGameInfo, 1000);
+let gameTimer;
 
-getFrame();
+function gameStart(){
+  gameTimer = setInterval(showGameInfo, 1000);
+  getFrame();
+}
 
 function getFrame(){
   animation = requestAnimationFrame(getFrame);
@@ -142,6 +147,8 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', (e) => {
   e = e || window.event;
   keydown[e.key] = false;
+  console.log(e.key);
+  if(e.key == " "){ gameStart(); }
 })
 
 function getRandomInt(min = 0, max = canvas.width) {
