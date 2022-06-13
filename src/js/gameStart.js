@@ -18,6 +18,7 @@ money_image.src = './src/img/money.png';
 var icon_man = new Man();
 
 function gameStart(){
+  showGameInfo();
   gameTimer = setInterval(showGameInfo, 1000);
   getFrame();
 }
