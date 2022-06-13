@@ -1,7 +1,8 @@
 import * as main from './main.js';
+import * as DEF from './define.js';
 import { Man, Money } from './gameObject.js';
 import { showGameInfo } from './showGameInfo.js';
-import * as DEF from './define.js';
+import * as playAudio from './playAudio.js';
 
 var canvas = document.querySelector('#canvas');
 export var ctx = canvas.getContext('2d');
@@ -12,6 +13,7 @@ canvas.height = 500;
 var icon_man = new Man();
 
 function gameStart(){
+  playAudio.bgmStart();
   showGameInfo();
   gameTimer = setInterval(showGameInfo, 1000);
   getFrame();
@@ -59,6 +61,7 @@ function collisionCheck(element){
   //console.log("comX : " + comX);
   //console.log("comY : " + comY);
   if(comX <=0 && comY <= 0){
+    playAudio.coinSound();
     main.GameInfo.score++;
     score.innerHTML = main.GameInfo.score;
     return true;
