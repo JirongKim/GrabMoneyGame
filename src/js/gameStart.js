@@ -9,12 +9,6 @@ export var ctx = canvas.getContext('2d');
 canvas.width = 500;
 canvas.height = 500;
 
-export var man_image = new Image();
-man_image.src = './src/img/man.png';
-
-export var money_image = new Image();
-money_image.src = './src/img/money.png';
-
 var icon_man = new Man();
 
 function gameStart(){

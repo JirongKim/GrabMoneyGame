@@ -1,4 +1,10 @@
-import { man_image, money_image, ctx } from "./gameStart.js";
+import { ctx } from "./gameStart.js";
+
+var man_image = new Image();
+man_image.src = './src/img/man.png';
+
+var money_image = new Image();
+money_image.src = './src/img/money.png';
 
 class Man{
   constructor(){
