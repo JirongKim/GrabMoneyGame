@@ -14,6 +14,12 @@ var keydown = {
   ArrowRight : false
 };
 
+// var audio = new Audio('./src/music/main_bgm.mp3');
+var audio = new Audio();
+audio.src = './src/music/main_bgm.mp3';
+audio.play();
+audio.loop = true;
+
 var man_image = new Image();
 man_image.src = './src/img/man.png';
 
