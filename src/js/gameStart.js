@@ -12,10 +12,6 @@ canvas.height = 512;
 
 var icon_man = new Man();
 
-//////////
-
-/////////
-
 function gameStart(){
   canvas.style.backgroundImage = "url('../src/img/gameBackground.jpg')"
   playAudio.bgmStart();
@@ -99,9 +95,12 @@ function keyMove(){
 }
 
 export function reset(){
+  canvas.style.backgroundImage = "url('../src/img/mainBackground.jpg')"
   main.GameInfo.isPlaying = false;
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;
   icon_money = [];
-  icon_man = new Man();
+  var icon_man = new Man();
+  icon_man.x = 643;
+  icon_man.y = 366.5;
 }

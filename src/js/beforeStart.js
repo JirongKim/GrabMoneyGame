@@ -28,6 +28,8 @@ export function mainFrame() {
   mainKeyMove();
   if (isInside(icon_man, btn_getMoney)) {
     if (main.GameInfo.isPlaying == false) {
+      icon_man.x = 643;
+      icon_man.y = 366.5;
       main.GameInfo.isPlaying = true;
       gameStart();
     }
