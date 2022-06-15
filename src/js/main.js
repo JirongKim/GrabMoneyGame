@@ -1,6 +1,7 @@
 import gameStart from './gameStart.js';
 import * as DEF from './define.js';
 import { canvas, ctx } from "./gameStart.js";
+import { Man, Money } from './gameObject.js';
 
 /////////
 //Function to get the mouse position
@@ -48,8 +49,6 @@ canvas.addEventListener('click', function(evt) {
   }
 }, false);
 
-//////////
-
 var keydown = {};
 
 var GameInfo = {
@@ -74,5 +73,50 @@ document.addEventListener('keyup', (e) => {
     }
   }
 })
+
+
+//////////
+var icon_man = new Man();
+icon_man.x = 643;
+icon_man.y = 366.5;
+var ani;
+function mainFrame(){
+  ani = requestAnimationFrame(mainFrame);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  mainKeyMove();
+  icon_man.draw();
+}
+mainFrame();
+
+function mainKeyMove(){
+  var main_velocity = 10;
+  if(keydown.ArrowLeft == true){
+    icon_man.x-=main_velocity;
+    if(icon_man.x < 0){
+      icon_man.x = 0;
+    }
+  }
+  if(keydown.ArrowRight == true){
+    icon_man.x+=main_velocity;
+    if(icon_man.x > (canvas.width-icon_man.width)){
+      icon_man.x = (canvas.width-icon_man.width);
+    }
+  }
+  if(keydown.ArrowUp == true){
+    icon_man.y-=main_velocity;
+    if(icon_man.y < 0){
+      icon_man.y = 0;
+    }
+  }
+  if(keydown.ArrowDown == true){
+    icon_man.y+=main_velocity;
+    if(icon_man.y > (canvas.height-icon_man.height)){
+      icon_man.y = (canvas.height-icon_man.height);
+    }
+  }
+}
+
+///////////
 
 export { GameInfo, keydown };
