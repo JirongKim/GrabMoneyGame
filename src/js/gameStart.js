@@ -26,6 +26,8 @@ export var animation;
 var timer = 0;
 export let gameTimer;
 
+
+
 function getFrame(){
   animation = requestAnimationFrame(getFrame);
   ctx.clearRect(0,0,canvas.width,canvas.height);

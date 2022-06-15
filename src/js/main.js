@@ -1,5 +1,6 @@
 import gameStart from './gameStart.js';
 import * as DEF from './define.js';
+import { ctx } from "./gameStart.js";
 
 var keydown = {};
 

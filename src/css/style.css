@@ -1,4 +1,6 @@
 #canvas {
+  background: url('../img/background.jpg');
+  background-size: cover;
   border: 1px solid blue;
   position: absolute;
   top: 0;
