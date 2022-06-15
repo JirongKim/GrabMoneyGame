@@ -4,15 +4,20 @@ import { Man, Money } from './gameObject.js';
 import { showGameInfo } from './showGameInfo.js';
 import * as playAudio from './playAudio.js';
 
-var canvas = document.querySelector('#canvas');
+export var canvas = document.querySelector('#canvas');
 export var ctx = canvas.getContext('2d');
 
-canvas.width = 500;
-canvas.height = 500;
+canvas.width = 1024;
+canvas.height = 512;
 
 var icon_man = new Man();
 
+//////////
+
+/////////
+
 function gameStart(){
+  canvas.style.backgroundImage = "url('../src/img/gameBackground.jpg')"
   playAudio.bgmStart();
   showGameInfo();
   gameTimer = setInterval(showGameInfo, 1000);
