@@ -1,6 +1,4 @@
-import gameStart from "/src/js/gameStart.js";
 import * as DEF from "/src/js/define.js";
-import { mainFrame } from "/src/js/beforeStart.js";
 import { firstUse } from "/src/js/firstUse.js";
 
 var keydown = {
@@ -33,6 +31,5 @@ document.addEventListener("keyup", (e) => {
 });
 
 firstUse();
-// mainFrame();
 
 export { GameInfo, keydown };

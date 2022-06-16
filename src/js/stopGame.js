@@ -1,6 +1,6 @@
 import * as main from '/src/js/main.js';
 import {gameTimer, animation, reset} from '/src/js/gameStart.js';
-import * as playAudio from '/src/js/playAudio.js';
+import * as playAudio from './playAudio.js';
 
 function stopGame(){
   playAudio.bgmStop();

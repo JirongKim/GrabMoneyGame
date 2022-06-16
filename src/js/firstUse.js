@@ -1,18 +1,22 @@
 import * as main from "/src/js/main.js";
 import { canvas, ctx } from "/src/js/gameStart.js";
+import { Man, Money } from '/src/js/gameObject.js';
+import { mainFrame } from "/src/js/beforeStart.js";
 
 var hasInput = false;
 var userName = "";
 var ani;
+var labelX = 309, labelY = 110;
+var labelWidth = 430, labelHeight = 40;
 function firstFrame() {
   ani = requestAnimationFrame(firstFrame);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "black";
-  ctx.fillRect(309, 224, 400, 40);
-  ctx.font = "30px Arial";
+  ctx.fillRect(labelX, labelY, labelWidth, labelHeight);
+  ctx.font = "30px Galmuri9";
   ctx.fillStyle = "white";
-  ctx.fillText("이름을 입력하세요 : ", 315, 254);
-  drawText(userName,580,245);
+  ctx.fillText("이름을 입력하세요", labelX+6, labelY+35);
+  drawText(userName, labelX+321,labelY+31);
 }
 
 function addInput(x, y) {
@@ -30,7 +34,8 @@ function addInput(x, y) {
 }
 
 export function firstUse() {
-  addInput(580, 245);
+  addInput(labelX + 291, labelY+24);
+  canvas.style.background = "lightgrey";
   firstFrame();
 }
 
@@ -45,7 +50,26 @@ function handleEnter(e) {
     userName = this.value;
     hasInput = true;
     document.body.removeChild(this);
+    setTimeout(function(){
+      console.log("animation Stop!");
+      cancelAnimationFrame(ani);
+      gameText();
+    }, 2000);
   }
+}
+
+function gameText(){
+  var icon_man = new Man();
+  icon_man.x = 465;
+  icon_man.y = 265;
+  icon_man.draw();
+  ctx.fillText("야옹", 542, 244);
+
+  setTimeout(function(){
+    canvas.style.backgroundImage = "url('/src/img/mainBackground.jpg')";
+    canvas.style.backgroundSize = "cover";
+    mainFrame();
+  }, 2000);
 }
 
 //Draw the text onto canvas:
@@ -53,7 +77,7 @@ function drawText(userName, x, y) {
   // ctx.textBaseline = "top";
   // ctx.textAlign = "left";
   if(!hasInput) {return;}
-  ctx.font = "30px Arial";
+  ctx.font = "30px Galmuri9";
   ctx.fillStyle = "white";
   ctx.fillText(userName, x - 10, y + 4);
 }

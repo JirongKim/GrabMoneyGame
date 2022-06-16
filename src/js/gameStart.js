@@ -13,7 +13,8 @@ canvas.height = 512;
 var icon_man = new Man();
 
 function gameStart(){
-  canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')"
+  canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
+  canvas.style.backgroundSize = "cover";
   playAudio.bgmStart();
   showGameInfo();
   gameTimer = setInterval(showGameInfo, 1000);
