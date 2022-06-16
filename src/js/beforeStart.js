@@ -18,8 +18,8 @@ var btn_goRoom = {
 };
 
 var icon_man = new Man();
-icon_man.x = 643;
-icon_man.y = 366.5;
+icon_man.x = 464;
+icon_man.y = 356;
 var ani;
 export function mainFrame() {
   ani = requestAnimationFrame(mainFrame);

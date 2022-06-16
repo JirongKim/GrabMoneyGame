@@ -1,16 +1,19 @@
+* {
+  font-family: Galmuri9, sans-serif;
+}
+
 #canvas {
-  background: url('../img/mainBackground.jpg');
+  background: url('/src/img/mainBackground.jpg');
   background-size: cover;
   border: 1px solid blue;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 }
 
 .canvas-container{
+  display: grid;
+}
+
+.status {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
 }

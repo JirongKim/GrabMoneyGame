@@ -95,7 +95,7 @@ function keyMove(){
 }
 
 export function reset(){
-  canvas.style.backgroundImage = "url('../src/img/mainBackground.jpg')"
+  canvas.style.backgroundImage = "url('/src/img/mainBackground.jpg')"
   main.GameInfo.isPlaying = false;
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;

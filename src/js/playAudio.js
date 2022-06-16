@@ -1,9 +1,9 @@
-var mainBgm = new Audio('./src/music/mainBgm.mp3');
+var mainBgm = new Audio('/src/music/mainBgm.mp3');
 mainBgm.volume = 0.1;
 mainBgm.loop = true;
 
 let getCoin;
-fetch('./src/music/getCoin.wav')
+fetch('/src/music/getCoin.wav')
     .then(function(response) {return response.blob()})
     .then(function(blob) {
         getCoin=URL.createObjectURL(blob);
