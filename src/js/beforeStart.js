@@ -1,7 +1,7 @@
-import * as main from './main.js';
-import gameStart from "./gameStart.js";
-import { canvas, ctx } from "./gameStart.js";
-import { Man, Money } from "./gameObject.js";
+import * as main from '/src/js/main.js';
+import gameStart from "/src/js/gameStart.js";
+import { canvas, ctx } from "/src/js/gameStart.js";
+import { Man, Money } from "/src/js/gameObject.js";
 
 var btn_getMoney = {
   x: 134,

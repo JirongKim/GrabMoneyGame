@@ -1,4 +1,4 @@
-import { ctx } from "./gameStart.js";
+import { ctx } from "/src/js/gameStart.js";
 
 var man_image = new Image();
 man_image.src = './src/img/man.png';

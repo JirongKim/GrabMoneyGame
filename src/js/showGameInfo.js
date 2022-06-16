@@ -1,5 +1,5 @@
-import * as main from './main.js';
-import { stopGame } from './stopGame.js';
+import * as main from '/src/js/main.js';
+import { stopGame } from '/src/js/stopGame.js';
 
 var leftTime = document.querySelector('#leftTime');
 var score = document.querySelector('#score');

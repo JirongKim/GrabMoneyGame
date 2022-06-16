@@ -1,6 +1,6 @@
-import gameStart from "./gameStart.js";
-import * as DEF from "./define.js";
-import { mainFrame } from "./beforeStart.js";
+import gameStart from "/src/js/gameStart.js";
+import * as DEF from "/src/js/define.js";
+import { mainFrame } from "/src/js/beforeStart.js";
 
 var keydown = {
   ArrowLeft: false,

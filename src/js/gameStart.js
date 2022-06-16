@@ -1,8 +1,8 @@
-import * as main from './main.js';
-import * as DEF from './define.js';
-import { Man, Money } from './gameObject.js';
-import { showGameInfo } from './showGameInfo.js';
-import * as playAudio from './playAudio.js';
+import * as main from '/src/js/main.js';
+import * as DEF from '/src/js/define.js';
+import { Man, Money } from '/src/js/gameObject.js';
+import { showGameInfo } from '/src/js/showGameInfo.js';
+import * as playAudio from '/src/js/playAudio.js';
 
 export var canvas = document.querySelector('#canvas');
 export var ctx = canvas.getContext('2d');
@@ -13,7 +13,7 @@ canvas.height = 512;
 var icon_man = new Man();
 
 function gameStart(){
-  canvas.style.backgroundImage = "url('../src/img/gameBackground.jpg')"
+  canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')"
   playAudio.bgmStart();
   showGameInfo();
   gameTimer = setInterval(showGameInfo, 1000);
@@ -100,7 +100,4 @@ export function reset(){
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;
   icon_money = [];
-  var icon_man = new Man();
-  icon_man.x = 643;
-  icon_man.y = 366.5;
 }
