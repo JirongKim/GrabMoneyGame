@@ -7,6 +7,8 @@ import * as playAudio from '/src/js/playAudio.js';
 export var canvas = document.querySelector('#canvas');
 export var ctx = canvas.getContext('2d');
 
+var gameMessage = document.querySelector('.gameMessage');
+
 canvas.width = 1024;
 canvas.height = 512;
 
@@ -15,13 +17,16 @@ var icon_man = new Man();
 function gameStart(){
   canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
   canvas.style.backgroundSize = "cover";
-
+  
   var promiseTime = 3;
+  gameMessage.classList.remove("hidden");
+  gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
+  
   var ptimer = setInterval(()=>{
-    addLabel(318, 33, promiseTime);
-    console.log(promiseTime);
     promiseTime--;
+    gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
     if(promiseTime == -1){
+      gameMessage.classList.add("hidden");
       clearInterval(ptimer);
       playAudio.bgmStart();
       showGameInfo();
@@ -29,18 +34,6 @@ function gameStart(){
       getFrame();
     }
   }, 1000);
-}
-
-function addLabel(x, y, s) {
-  var label = document.createElement("label");
-  label.innerHTML = s + "초 후에 게임이 시작됩니다.";
-  label.style.position = "fixed";
-  label.style.left = x + "px";
-  label.style.top = y + "px";
-  label.style.fontSize = "30px";
-  label.style.backgroundColor = "white";
-
-  document.body.appendChild(label);
 }
 
 export default gameStart;

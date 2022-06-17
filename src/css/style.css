@@ -37,3 +37,11 @@
   font-size : 30px;
   background-color : white;
 }
+
+.gameMessage{
+  position : fixed;
+  left : 318px;
+  top : 33px;
+  font-size : 30px;
+  background-color : white;
+}
