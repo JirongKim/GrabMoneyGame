@@ -17,3 +17,23 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.hidden {
+  display: none;
+}
+
+.leftTimeWrapper{
+  position : fixed;
+  left : 20px;
+  top : 20px;
+  font-size : 30px;
+  background-color : white;
+}
+
+.scoreWrapper{
+  position : fixed;
+  left : 910px;
+  top : 20px;
+  font-size : 30px;
+  background-color : white;
+}

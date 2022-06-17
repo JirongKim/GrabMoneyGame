@@ -39,7 +39,6 @@ function addLabel(x, y, s) {
   label.style.top = y + "px";
   label.style.fontSize = "30px";
   label.style.backgroundColor = "white";
-  label.style.width = "400px";
 
   document.body.appendChild(label);
 }
