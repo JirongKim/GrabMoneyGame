@@ -15,10 +15,33 @@ var icon_man = new Man();
 function gameStart(){
   canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
   canvas.style.backgroundSize = "cover";
-  playAudio.bgmStart();
-  showGameInfo();
-  gameTimer = setInterval(showGameInfo, 1000);
-  getFrame();
+
+  var promiseTime = 3;
+  var ptimer = setInterval(()=>{
+    addLabel(318, 33, promiseTime);
+    console.log(promiseTime);
+    promiseTime--;
+    if(promiseTime == -1){
+      clearInterval(ptimer);
+      playAudio.bgmStart();
+      showGameInfo();
+      gameTimer = setInterval(showGameInfo, 1000);
+      getFrame();
+    }
+  }, 1000);
+}
+
+function addLabel(x, y, s) {
+  var label = document.createElement("label");
+  label.innerHTML = s + "초 후에 게임이 시작됩니다.";
+  label.style.position = "fixed";
+  label.style.left = x + "px";
+  label.style.top = y + "px";
+  label.style.fontSize = "30px";
+  label.style.backgroundColor = "white";
+  label.style.width = "400px";
+
+  document.body.appendChild(label);
 }
 
 export default gameStart;
