@@ -1,13 +1,11 @@
 import * as main from '/src/js/main.js';
 import * as DEF from '/src/js/define.js';
 import { Man, Money } from '/src/js/gameObject.js';
-import { showGameInfo } from '/src/js/showGameInfo.js';
+import { showGameInfo , gameMessage } from '/src/js/showGameInfo.js';
 import * as playAudio from '/src/js/playAudio.js';
 
 export var canvas = document.querySelector('#canvas');
 export var ctx = canvas.getContext('2d');
-
-var gameMessage = document.querySelector('.gameMessage');
 
 canvas.width = 1024;
 canvas.height = 512;

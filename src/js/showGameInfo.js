@@ -5,8 +5,9 @@ var leftTime = document.querySelector('#leftTime');
 var score = document.querySelector('#score');
 var leftTimeWrapper = document.querySelector('.leftTimeWrapper');
 var scoreWrapper = document.querySelector('.scoreWrapper');
+export var gameMessage = document.querySelector('.gameMessage');
 
-function showGameInfo(){
+export function showGameInfo(){
   leftTimeWrapper.classList.remove("hidden");
   scoreWrapper.classList.remove("hidden");
 
@@ -18,5 +19,3 @@ function showGameInfo(){
     stopGame();
   }
 }
-
-export {showGameInfo};
