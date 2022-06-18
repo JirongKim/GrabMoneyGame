@@ -23,7 +23,7 @@ function gameStart(){
   var ptimer = setInterval(()=>{
     promiseTime--;
     gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
-    if(promiseTime == -1){
+    if(promiseTime == 0){
       gameMessage.classList.add("hidden");
       clearInterval(ptimer);
       playAudio.bgmStart();
