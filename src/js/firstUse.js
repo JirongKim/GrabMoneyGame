@@ -1,6 +1,5 @@
 import * as main from "/src/js/main.js";
-import { canvas, ctx } from "/src/js/gameStart.js";
-import { Man, Money } from '/src/js/gameObject.js';
+import { Man, Money, canvas, ctx } from '/src/js/gameObject.js';
 import { mainFrame } from "/src/js/beforeStart.js";
 
 var hasInput = false;

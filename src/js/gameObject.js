@@ -1,4 +1,5 @@
-import { ctx } from "/src/js/gameStart.js";
+export var canvas = document.querySelector('#canvas');
+export var ctx = canvas.getContext('2d');
 
 var man_image = new Image();
 man_image.src = '/src/img/man.png';
@@ -17,6 +18,9 @@ class Man{
     //ctx.fillStyle = 'Green';
     //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(man_image, this.x, this.y, this.width, this.height);
+  }
+  hidden(){
+    ctx.clearRect(this.x,this.y,this.width,this.height);
   }
 }
 

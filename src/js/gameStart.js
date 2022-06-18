@@ -1,11 +1,9 @@
 import * as main from '/src/js/main.js';
 import * as DEF from '/src/js/define.js';
-import { Man, Money } from '/src/js/gameObject.js';
+import { Man, Money, canvas, ctx } from '/src/js/gameObject.js';
 import { showGameInfo , gameMessage } from '/src/js/showGameInfo.js';
 import * as playAudio from '/src/js/playAudio.js';
-
-export var canvas = document.querySelector('#canvas');
-export var ctx = canvas.getContext('2d');
+import { icon_man_off, icon_man_on } from '/src/js/beforeStart.js';
 
 canvas.width = 1024;
 canvas.height = 512;
@@ -13,9 +11,6 @@ canvas.height = 512;
 var icon_man = new Man();
 
 function gameStart(){
-  canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
-  canvas.style.backgroundSize = "cover";
-  
   var promiseTime = 3;
   gameMessage.classList.remove("hidden");
   gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
@@ -24,6 +19,8 @@ function gameStart(){
     promiseTime--;
     gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
     if(promiseTime == 0){
+      canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
+      canvas.style.backgroundSize = "cover";
       gameMessage.classList.add("hidden");
       clearInterval(ptimer);
       playAudio.bgmStart();
@@ -113,5 +110,6 @@ export function reset(){
   main.GameInfo.isPlaying = false;
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;
+  icon_man_on();
   icon_money = [];
 }
