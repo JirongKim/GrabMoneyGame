@@ -2,7 +2,7 @@ import * as main from '/src/js/main.js';
 import { stopGame } from '/src/js/stopGame.js';
 
 var leftTime = document.querySelector('#leftTime');
-var score = document.querySelector('#score');
+export var score = document.querySelector('#score');
 var leftTimeWrapper = document.querySelector('.leftTimeWrapper');
 var scoreWrapper = document.querySelector('.scoreWrapper');
 export var gameMessage = document.querySelector('.gameMessage');

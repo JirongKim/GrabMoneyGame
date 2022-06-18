@@ -1,6 +1,6 @@
 import * as main from '/src/js/main.js';
 import {gameTimer, animation, reset} from '/src/js/gameStart.js';
-import * as playAudio from './playAudio.js';
+import * as playAudio from '/src/js/playAudio.js';
 import { gameMessage } from '/src/js/showGameInfo.js';
 
 function stopGame(){
@@ -8,14 +8,17 @@ function stopGame(){
   clearInterval(gameTimer);
   cancelAnimationFrame(animation);
 
-  var promiseTime = 2;
+  var promiseTime = 5;
   gameMessage.classList.remove("hidden");
-  gameMessage.innerHTML = `${promiseTime}초 후에 대기실로 이동합니다.`;
-
+  gameMessage.innerHTML = `게임종료!`;
+  
   var ptimer = setInterval(()=>{
     promiseTime--;
-    gameMessage.innerHTML = `${promiseTime}초 후에 대기실로 이동합니다.`;
-    if(promiseTime == -1){
+    if(promiseTime == 4) { gameMessage.innerHTML = `획득한 점수는 ${main.GameInfo.score}점 입니다!`; }
+    else{
+      gameMessage.innerHTML = `${promiseTime}초 후에 대기실로 이동합니다.`;
+    }
+    if(promiseTime == 0){
       gameMessage.classList.add("hidden");
       clearInterval(ptimer);
       reset();
