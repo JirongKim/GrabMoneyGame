@@ -73,6 +73,7 @@ canvas.addEventListener(
 );
 
 function mainKeyMove() {
+  if(main.GameInfo.isPlaying == true){ return; }
   var main_velocity = 10;
   if (main.keydown.ArrowLeft == true) {
     icon_man.x -= main_velocity;
