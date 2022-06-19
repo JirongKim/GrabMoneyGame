@@ -6,6 +6,9 @@ export var score = document.querySelector('#score');
 var leftTimeWrapper = document.querySelector('.leftTimeWrapper');
 var scoreWrapper = document.querySelector('.scoreWrapper');
 export var gameMessage = document.querySelector('.gameMessage');
+export var cashStatus = document.querySelector('#cash');
+
+cashStatus.innerHTML = (Number(window.localStorage.getItem('money')) * 10000);
 
 export function showGameInfo(){
   leftTimeWrapper.classList.remove("hidden");

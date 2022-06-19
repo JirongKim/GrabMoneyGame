@@ -1,7 +1,7 @@
 import * as main from '/src/js/main.js';
 import {gameTimer, animation, reset} from '/src/js/gameStart.js';
 import * as playAudio from '/src/js/playAudio.js';
-import { gameMessage } from '/src/js/showGameInfo.js';
+import { gameMessage, cashStatus } from '/src/js/showGameInfo.js';
 
 function stopGame(){
   playAudio.bgmStop();
@@ -10,7 +10,8 @@ function stopGame(){
 
   var havingMoney = window.localStorage.getItem('money');
   window.localStorage.setItem('money', Number(main.GameInfo.score) + Number(havingMoney));
-  console.log(window.localStorage.getItem('money'));
+  cashStatus.innerHTML = (Number(window.localStorage.getItem('money')) * 10000);
+  // console.log();
 
   var promiseTime = 5;
   gameMessage.classList.remove("hidden");
