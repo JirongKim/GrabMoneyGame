@@ -8,6 +8,10 @@ function stopGame(){
   clearInterval(gameTimer);
   cancelAnimationFrame(animation);
 
+  var havingMoney = window.localStorage.getItem('money');
+  window.localStorage.setItem('money', Number(main.GameInfo.score) + Number(havingMoney));
+  console.log(window.localStorage.getItem('money'));
+
   var promiseTime = 5;
   gameMessage.classList.remove("hidden");
   gameMessage.innerHTML = `게임종료!`;

@@ -11,7 +11,7 @@ fetch('/src/music/getCoin.wav')
  });
 
 export function bgmStart(){
-  mainBgm.play();
+  // mainBgm.play();
 }
 
 export function bgmStop(){
@@ -25,5 +25,5 @@ export function coinSound(){
 
   var cs = new Audio(getCoin)
   cs.volume = 0.1;
-  cs.play();  // fetches the audio file from the blob.
+  // cs.play();  // fetches the audio file from the blob.
 }
