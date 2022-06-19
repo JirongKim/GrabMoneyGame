@@ -4,17 +4,31 @@ import { canvas, ctx } from '/src/js/gameObject.js';
 import { Man, Money } from "/src/js/gameObject.js";
 
 var btn_getMoney = {
-  x: 134,
-  y: 203.5,
-  width: 220,
-  height: 74,
+  x: 0,
+  y: 0,
+  width: 150,
+  height: 80,
 };
 
 var btn_goRoom = {
-  x: 774,
-  y: 324.5,
-  width: 58,
-  height: 96,
+  x: 875,
+  y: 450,
+  width: 150,
+  height: 80,
+};
+
+var btn_goShop = {
+  x: 875,
+  y: 0,
+  width: 150,
+  height: 80,
+};
+
+var btn_goMain = {
+  x: 0,
+  y: 440,
+  width: 150,
+  height: 80,
 };
 
 var icon_man = new Man();
@@ -45,7 +59,14 @@ export function mainFrame() {
       gameStart();
     }
   }
-  if (isInside(icon_man, btn_goRoom)) {
+  else if (isInside(icon_man, btn_goMain)) {
+    console.log("main");
+  }
+  else if (isInside(icon_man, btn_goRoom)) {
+    console.log("room");
+  }
+  else if (isInside(icon_man, btn_goShop)) {
+    console.log("shop");
   }
 
   icon_man_off_flag ? icon_man.hidden() : icon_man.draw();

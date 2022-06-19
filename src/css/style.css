@@ -1,5 +1,18 @@
+@media screen and (max-width: 1100px){
+  #no-support{
+    display: block!important;
+  }
+  .messageGroup, .canvas-container, body input{
+    display: none!important;
+  }
+}
+
 * {
   font-family: Galmuri9, sans-serif;
+}
+
+body{
+  width: 1050px;
 }
 
 #canvas {
@@ -44,4 +57,11 @@
   top : 33px;
   font-size : 30px;
   background-color : white;
+}
+
+#no-support{
+  text-align: center;
+  font-size: 50px;
+  display: none;
+  z-index: 100;
 }

@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-  
+  <div id="no-support">화면 넓이를 1100px 이상 확보해주세요!!</div>
   <div class="canvas-container p-3">
     <canvas id="canvas"></canvas>
     <div class="status">
@@ -20,10 +20,12 @@
     </div>
   </div>
   
-  <h2 class="leftTimeWrapper hidden">남은시간 : <span id="leftTime"></span></h2>
-  <h2 class="scoreWrapper hidden">점수 : <span id="score"></span></h2>
-  <p class="gameMessage hidden"></p>
-  
+  <div class="messageGroup">
+    <h2 class="leftTimeWrapper hidden">남은시간 : <span id="leftTime"></span></h2>
+    <h2 class="scoreWrapper hidden">점수 : <span id="score"></span></h2>
+    <p class="gameMessage hidden"></p>
+  </div>
+    
   <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
