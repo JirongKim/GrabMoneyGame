@@ -21,13 +21,6 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("keyup", (e) => {
   e = e || window.event;
   keydown[e.key] = false;
-  //console.log(e.key);
-  if (e.key == " ") {
-    if (GameInfo.isPlaying == false) {
-      GameInfo.isPlaying = true;
-      gameStart();
-    }
-  }
 });
 
 firstUse();
