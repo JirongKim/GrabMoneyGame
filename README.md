@@ -77,4 +77,6 @@ window.localStorage.setItem('money', Number(main.GameInfo.score) + Number(having
 ```
 <br><br>
 
-## 전체 
+## 전체 디자인
+![greenRoom_view](./assets/img/greenRoom_view.png)
+![game_view](./assets/img/game_view.png)
