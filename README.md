@@ -8,11 +8,14 @@ Vanilla javascript로 구현한 돈줍기 게임입니다.<br>
 하늘에서 떨어지는 돈을 주워 돈을 벌 수 있습니다. <br>
 상점에서 장비를 구매할 수 있습니다. <br><br>
 
-## 게임방법
+## 유의사항
 1. 브라우저의 넓이를 최소 1100px로 지정해주세요 <br>
-2. https://jirongkim.github.io/GrabMoneyGame/ 접속 <br>
-3. 키우고자하는 고양이의 이름을 입력하세요. <br>
-4. 키보드 방향키를 이용하여 게임을 진행하실 수 있습니다. <br><br>
+2. Chrome 브라우저에 최적화 되어있습니다. (Safari는 bgm 재생되지 않습니다) <br><br>
+
+## 게임방법
+1. https://jirongkim.github.io/GrabMoneyGame/ 접속 <br>
+2. 키우고자하는 고양이의 이름을 입력하세요. <br>
+3. 키보드 방향키를 이용하여 게임을 진행하실 수 있습니다. <br><br>
 
 ## 기능설명
 1. 고양이와 돈은 Class를 이용하여 생성하였습니다.<br>
