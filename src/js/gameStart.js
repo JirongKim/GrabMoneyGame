@@ -1,9 +1,9 @@
-import * as main from '/src/js/main.js';
-import * as DEF from '/src/js/define.js';
-import { Man, Money, canvas, ctx } from '/src/js/gameObject.js';
-import { showGameInfo , gameMessage } from '/src/js/showGameInfo.js';
-import * as playAudio from '/src/js/playAudio.js';
-import { icon_man_off, icon_man_on } from '/src/js/beforeStart.js';
+import * as main from './main.js';
+import * as DEF from './define.js';
+import { Man, Money, canvas, ctx } from './gameObject.js';
+import { showGameInfo , gameMessage } from './showGameInfo.js';
+import * as playAudio from './playAudio.js';
+import { icon_man_off, icon_man_on } from './beforeStart.js';
 
 canvas.width = 1024;
 canvas.height = 512;
@@ -19,7 +19,7 @@ function gameStart(){
     promiseTime--;
     gameMessage.innerHTML = `${promiseTime}초 후에 게임을 시작합니다.`;
     if(promiseTime == 0){
-      canvas.style.backgroundImage = "url('/src/img/gameBackground.jpg')";
+      canvas.style.backgroundImage = "url('./src/img/gameBackground.jpg')";
       canvas.style.backgroundSize = "cover";
       gameMessage.classList.add("hidden");
       clearInterval(ptimer);
@@ -106,7 +106,7 @@ function keyMove(){
 }
 
 export function reset(){
-  canvas.style.backgroundImage = "url('/src/img/mainBackground.jpg')"
+  canvas.style.backgroundImage = "url('./src/img/mainBackground.jpg')"
   main.GameInfo.isPlaying = false;
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;

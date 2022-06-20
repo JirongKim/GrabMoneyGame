@@ -1,5 +1,5 @@
-import * as DEF from "/src/js/define.js";
-import { firstUse } from "/src/js/firstUse.js";
+import * as DEF from "./define.js";
+import { firstUse } from "./firstUse.js";
 
 var keydown = {
   ArrowLeft: false,

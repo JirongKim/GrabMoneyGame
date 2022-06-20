@@ -1,6 +1,6 @@
-import * as main from "/src/js/main.js";
-import { Man, Money, canvas, ctx } from '/src/js/gameObject.js';
-import { mainFrame } from "/src/js/beforeStart.js";
+import * as main from "./main.js";
+import { Man, Money, canvas, ctx } from './gameObject.js';
+import { mainFrame } from "./beforeStart.js";
 
 var hasInput = false;
 var userName = "";
@@ -65,7 +65,7 @@ function gameText(){
   ctx.fillText("야옹", 542, 244);
 
   setTimeout(function(){
-    canvas.style.backgroundImage = "url('/src/img/mainBackground.jpg')";
+    canvas.style.backgroundImage = "url('./src/img/mainBackground.jpg')";
     canvas.style.backgroundSize = "cover";
     mainFrame();
   }, 2000);
