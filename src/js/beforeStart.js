@@ -1,36 +1,8 @@
 import * as main from "./main.js";
 import gameStart from "./gameStart.js";
-import { canvas, ctx, isInside } from './gameObject.js';
+import * as GAMEOBJECT from './gameObject.js';
 import { Man, Money, mainKeyMove } from "./gameObject.js";
 import { shop } from "./shop.js";
-
-var btn_getMoney = {
-  x: 0,
-  y: 0,
-  width: 150,
-  height: 80,
-};
-
-var btn_goRoom = {
-  x: 875,
-  y: 450,
-  width: 150,
-  height: 80,
-};
-
-var btn_goShop = {
-  x: 875,
-  y: 0,
-  width: 150,
-  height: 80,
-};
-
-var btn_goMain = {
-  x: 0,
-  y: 440,
-  width: 150,
-  height: 80,
-};
 
 var icon_man = new Man();
 icon_man.x = 464;
@@ -48,10 +20,10 @@ export function icon_man_on(){
 
 export function mainFrame() {
   ani = requestAnimationFrame(mainFrame);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  GAMEOBJECT.ctx.clearRect(0, 0, GAMEOBJECT.canvas.width, GAMEOBJECT.canvas.height);
 
   mainKeyMove(main.GameInfo.beforePlaying, icon_man, main.keydown);
-  if (isInside(icon_man, btn_getMoney)) {
+  if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_getMoney)) {
     if (main.GameInfo.isPlaying == false) {
       icon_man_off();
       icon_man.x = 464;
@@ -61,13 +33,13 @@ export function mainFrame() {
       gameStart();
     }
   }
-  else if (isInside(icon_man, btn_goMain)) {
+  else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain)) {
     console.log("main");
   }
-  else if (isInside(icon_man, btn_goRoom)) {
+  else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goRoom)) {
     console.log("room");
   }
-  else if (isInside(icon_man, btn_goShop)) {
+  else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goShop)) {
     if (main.GameInfo.isShop == false) {
       icon_man_off();
       icon_man.x = 464;
@@ -82,22 +54,22 @@ export function mainFrame() {
   icon_man_off_flag ? icon_man.hidden() : icon_man.draw();
 }
 
-canvas.addEventListener(
+GAMEOBJECT.canvas.addEventListener(
   "click",
   function (evt) {
-    var mousePos = getMousePos(canvas, evt);
+    var mousePos = getMousePos(GAMEOBJECT.canvas, evt);
     console.log(mousePos);
 
-    // if (isInside(mousePos,btn_getMoney)) {
+    // if (GAMEOBJECT.isInside(mousePos,GAMEOBJECT.btn_getMoney)) {
     //   if(main.GameInfo.isPlaying == false){
     //     main.GameInfo.isPlaying = true;
     //     gameStart();
     //   }
-    //   console.log('clicked inside btn_getMoney');
+    //   console.log('clicked inside GAMEOBJECT.btn_getMoney');
     // }
 
-    // if (isInside(mousePos,btn_goRoom)) {
-    //   console.log('clicked inside btn_goRoom');
+    // if (GAMEOBJECT.isInside(mousePos,GAMEOBJECT.btn_goRoom)) {
+    //   console.log('clicked inside GAMEOBJECT.btn_goRoom');
     // }
   },
   false

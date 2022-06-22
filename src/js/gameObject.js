@@ -38,6 +38,34 @@ class Money{
   }
 }
 
+export var btn_getMoney = {
+  x: 0,
+  y: 0,
+  width: 150,
+  height: 80,
+};
+
+export var btn_goRoom = {
+  x: 875,
+  y: 450,
+  width: 150,
+  height: 80,
+};
+
+export var btn_goShop = {
+  x: 875,
+  y: 0,
+  width: 150,
+  height: 80,
+};
+
+export var btn_goMain = {
+  x: 0,
+  y: 440,
+  width: 150,
+  height: 80,
+};
+
 export function mainKeyMove(p, m, e) {
   if(p == false){ return; }
   var main_velocity = 10;
