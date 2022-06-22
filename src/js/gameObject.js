@@ -67,4 +67,25 @@ export function mainKeyMove(p, m, e) {
   }
 }
 
+export function isInside(pos, rect) {
+  var comX;
+  if (pos.x > rect.x) {
+    comX = pos.x - (rect.x + rect.width);
+  } else {
+    comX = rect.x - (pos.x + pos.width);
+  }
+  var comY;
+  if (pos.y > rect.y) {
+    comY = pos.y - (rect.y + rect.height);
+  } else {
+    comY = rect.y - (pos.y + pos.height);
+  }
+  //console.log("comX : " + comX);
+  //console.log("comY : " + comY);
+  if (comX <= 0 && comY <= 0) {
+    return true;
+  }
+  return false;
+}
+
 export {Man, Money};

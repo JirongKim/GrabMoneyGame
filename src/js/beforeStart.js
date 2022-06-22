@@ -1,6 +1,6 @@
 import * as main from "./main.js";
 import gameStart from "./gameStart.js";
-import { canvas, ctx } from './gameObject.js';
+import { canvas, ctx, isInside } from './gameObject.js';
 import { Man, Money, mainKeyMove } from "./gameObject.js";
 import { shop } from "./shop.js";
 
@@ -109,25 +109,4 @@ function getMousePos(canvas, event) {
     x: event.clientX - rect.left,
     y: event.clientY - rect.top,
   };
-}
-
-function isInside(pos, rect) {
-  var comX;
-  if (pos.x > rect.x) {
-    comX = pos.x - (rect.x + rect.width);
-  } else {
-    comX = rect.x - (pos.x + pos.width);
-  }
-  var comY;
-  if (pos.y > rect.y) {
-    comY = pos.y - (rect.y + rect.height);
-  } else {
-    comY = rect.y - (pos.y + pos.height);
-  }
-  //console.log("comX : " + comX);
-  //console.log("comY : " + comY);
-  if (comX <= 0 && comY <= 0) {
-    return true;
-  }
-  return false;
 }
