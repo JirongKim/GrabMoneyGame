@@ -33,9 +33,6 @@ export function mainFrame() {
       gameStart();
     }
   }
-  else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain)) {
-    console.log("main");
-  }
   else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goRoom)) {
     console.log("room");
   }
