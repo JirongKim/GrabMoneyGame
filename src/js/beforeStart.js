@@ -1,7 +1,8 @@
 import * as main from "./main.js";
 import gameStart from "./gameStart.js";
 import { canvas, ctx } from './gameObject.js';
-import { Man, Money } from "./gameObject.js";
+import { Man, Money, mainKeyMove } from "./gameObject.js";
+import { shop } from "./shop.js";
 
 var btn_getMoney = {
   x: 0,
@@ -49,7 +50,7 @@ export function mainFrame() {
   ani = requestAnimationFrame(mainFrame);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  mainKeyMove();
+  mainKeyMove(main.GameInfo.isPlaying, icon_man, main.keydown);
   if (isInside(icon_man, btn_getMoney)) {
     if (main.GameInfo.isPlaying == false) {
       icon_man_off();
@@ -66,6 +67,13 @@ export function mainFrame() {
     console.log("room");
   }
   else if (isInside(icon_man, btn_goShop)) {
+    if (main.GameInfo.isShop == false) {
+      icon_man_off();
+      icon_man.x = 464;
+      icon_man.y = 356;
+      main.GameInfo.isShop = true;
+      shop();
+    }
     console.log("shop");
   }
 
@@ -92,35 +100,6 @@ canvas.addEventListener(
   },
   false
 );
-
-function mainKeyMove() {
-  if(main.GameInfo.isPlaying == true){ return; }
-  var main_velocity = 10;
-  if (main.keydown.ArrowLeft == true) {
-    icon_man.x -= main_velocity;
-    if (icon_man.x < 0) {
-      icon_man.x = 0;
-    }
-  }
-  if (main.keydown.ArrowRight == true) {
-    icon_man.x += main_velocity;
-    if (icon_man.x > canvas.width - icon_man.width) {
-      icon_man.x = canvas.width - icon_man.width;
-    }
-  }
-  if (main.keydown.ArrowUp == true) {
-    icon_man.y -= main_velocity;
-    if (icon_man.y < 0) {
-      icon_man.y = 0;
-    }
-  }
-  if (main.keydown.ArrowDown == true) {
-    icon_man.y += main_velocity;
-    if (icon_man.y > canvas.height - icon_man.height) {
-      icon_man.y = canvas.height - icon_man.height;
-    }
-  }
-}
 
 function getMousePos(canvas, event) {
   var rect = canvas.getBoundingClientRect();

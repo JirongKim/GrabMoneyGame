@@ -1,6 +1,6 @@
 import * as main from './main.js';
 import * as DEF from './define.js';
-import { Man, Money, canvas, ctx } from './gameObject.js';
+import { Man, Money, canvas, ctx, mainKeyMove } from './gameObject.js';
 import { showGameInfo , gameMessage } from './showGameInfo.js';
 import * as playAudio from './playAudio.js';
 import { icon_man_off, icon_man_on } from './beforeStart.js';
@@ -24,6 +24,6 @@ function shopFrame(){
   animation = requestAnimationFrame(shopFrame);
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  keyMove();
+  mainKeyMove(main.GameInfo.isShop, icon_man, main.keydown);
   icon_man.draw();
 }

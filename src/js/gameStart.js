@@ -90,7 +90,7 @@ function getRandomInt(min = 0, max = canvas.width) {
 }
 
 
-function keyMove(){
+export function keyMove(){
   if(main.keydown.ArrowLeft == true){
     icon_man.x-=DEF.man_velocity;
     if(icon_man.x < 0){

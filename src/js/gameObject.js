@@ -38,4 +38,33 @@ class Money{
   }
 }
 
+export function mainKeyMove(p, m, e) {
+  if(p == true){ return; }
+  var main_velocity = 10;
+  if (e.ArrowLeft == true) {
+    m.x -= main_velocity;
+    if (m.x < 0) {
+      m.x = 0;
+    }
+  }
+  if (e.ArrowRight == true) {
+    m.x += main_velocity;
+    if (m.x > canvas.width - m.width) {
+      m.x = canvas.width - m.width;
+    }
+  }
+  if (e.ArrowUp == true) {
+    m.y -= main_velocity;
+    if (m.y < 0) {
+      m.y = 0;
+    }
+  }
+  if (e.ArrowDown == true) {
+    m.y += main_velocity;
+    if (m.y > canvas.height - m.height) {
+      m.y = canvas.height - m.height;
+    }
+  }
+}
+
 export {Man, Money};
