@@ -39,7 +39,7 @@ class Money{
 }
 
 export function mainKeyMove(p, m, e) {
-  if(p == true){ return; }
+  if(p == false){ return; }
   var main_velocity = 10;
   if (e.ArrowLeft == true) {
     m.x -= main_velocity;

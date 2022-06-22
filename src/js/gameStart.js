@@ -108,6 +108,7 @@ export function keyMove(){
 export function reset(){
   canvas.style.backgroundImage = "url('./src/img/mainBackground.jpg')"
   main.GameInfo.isPlaying = false;
+  main.GameInfo.beforePlaying = true;
   main.GameInfo.score = 0;
   main.GameInfo.leftTime = DEF.DEFAULT_TIME;
   icon_man_on();

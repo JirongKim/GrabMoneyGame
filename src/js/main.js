@@ -12,6 +12,7 @@ var GameInfo = {
   leftTime: DEF.DEFAULT_TIME,
   isPlaying: false,
   isShop: false,
+  beforePlaying: true,
 };
 
 document.addEventListener("keydown", (e) => {

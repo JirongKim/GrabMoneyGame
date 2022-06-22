@@ -50,13 +50,14 @@ export function mainFrame() {
   ani = requestAnimationFrame(mainFrame);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  mainKeyMove(main.GameInfo.isPlaying, icon_man, main.keydown);
+  mainKeyMove(main.GameInfo.beforePlaying, icon_man, main.keydown);
   if (isInside(icon_man, btn_getMoney)) {
     if (main.GameInfo.isPlaying == false) {
       icon_man_off();
       icon_man.x = 464;
       icon_man.y = 356;
       main.GameInfo.isPlaying = true;
+      main.GameInfo.beforePlaying = false;
       gameStart();
     }
   }
@@ -72,6 +73,7 @@ export function mainFrame() {
       icon_man.x = 464;
       icon_man.y = 356;
       main.GameInfo.isShop = true;
+      main.GameInfo.beforePlaying = false;
       shop();
     }
     console.log("shop");
