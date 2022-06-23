@@ -73,6 +73,48 @@ export var btn_goMain_fromShop = {
   height: 60,
 };
 
+export var item_Mac = {
+  x: 27,
+  y: 6,
+  width: 164,
+  height: 121,
+};
+
+export var item_Iphone = {
+  x: 36,
+  y: 158,
+  width: 145,
+  height: 154,
+};
+
+export var item_AirPods = {
+  x: 29,
+  y: 371,
+  width: 133,
+  height: 136,
+};
+
+export var item_GalaxyBook = {
+  x: 822,
+  y: 4,
+  width: 188,
+  height: 123,
+};
+
+export var item_GalaxyS = {
+  x: 827,
+  y: 159,
+  width: 169,
+  height: 157,
+};
+
+export var item_Buds = {
+  x: 857,
+  y: 346,
+  width: 128,
+  height: 159,
+};
+
 export function mainKeyMove(p, m, e) {
   if(p == false){ return; }
   var main_velocity = 10;
