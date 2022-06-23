@@ -66,6 +66,13 @@ export var btn_goMain = {
   height: 80,
 };
 
+export var btn_goMain_fromShop = {
+  x: 431,
+  y: 484,
+  width: 165,
+  height: 60,
+};
+
 export function mainKeyMove(p, m, e) {
   if(p == false){ return; }
   var main_velocity = 10;

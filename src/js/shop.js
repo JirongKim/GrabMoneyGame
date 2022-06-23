@@ -12,7 +12,7 @@ icon_man.y = 228;
 
 export function shop(){
     gameMessage.innerHTML = `상점에 입장하셨습니다`;
-    GAMEOBJECT.canvas.style.backgroundImage = "url('./src/img/gameBackground.jpg')";
+    GAMEOBJECT.canvas.style.backgroundImage = "url('./src/img/shopBackground2.png')";
     GAMEOBJECT.canvas.style.backgroundSize = "cover";
     // gameMessage.classList.add("hidden");
     shopFrame();
@@ -25,7 +25,7 @@ function shopFrame(){
   GAMEOBJECT.ctx.clearRect(0,0,GAMEOBJECT.canvas.width,GAMEOBJECT.canvas.height);
 
   GAMEOBJECT.mainKeyMove(main.GameInfo.isShop, icon_man, main.keydown);
-  if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain)) {
+  if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain_fromShop)) {
     cancelAnimationFrame(animation);
     main.GameInfo.isShop = false;
     main.GameInfo.beforePlaying = true;
