@@ -22,3 +22,18 @@ export function showGameInfo(){
     stopGame();
   }
 }
+
+function delay(n){
+  return new Promise(function(resolve){
+      setTimeout(resolve,n*1000);
+  });
+}
+
+export async function dpMsgForNsec(n){
+  console.log("Before the delay")
+  gameMessage.classList.remove("hidden");
+  await delay(n);
+
+  console.log("After the delay")
+  gameMessage.classList.add("hidden");
+}
