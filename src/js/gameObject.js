@@ -1,37 +1,37 @@
-export var canvas = document.querySelector('#canvas');
-export var ctx = canvas.getContext('2d');
+export var canvas = document.querySelector("#canvas");
+export var ctx = canvas.getContext("2d");
 
 var man_image = new Image();
-man_image.src = './src/img/man.png';
+man_image.src = "./src/img/man.png";
 
 var money_image = new Image();
-money_image.src = './src/img/money.png';
+money_image.src = "./src/img/money.png";
 
-class Man{
-  constructor(){
+class Man {
+  constructor() {
     this.x = canvas.width / 2;
     this.y = canvas.height - 64;
     this.width = 64;
     this.height = 64;
   }
-  draw(){
+  draw() {
     //ctx.fillStyle = 'Green';
     //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(man_image, this.x, this.y, this.width, this.height);
   }
-  hidden(){
-    ctx.clearRect(this.x,this.y,this.width,this.height);
+  hidden() {
+    ctx.clearRect(this.x, this.y, this.width, this.height);
   }
 }
 
-class Money{
-  constructor(x, y = 10){
+class Money {
+  constructor(x, y = 10) {
     this.x = x;
     this.y = y;
     this.width = 32;
     this.height = 32;
   }
-  draw(){
+  draw() {
     //ctx.fillStyle = 'Red';
     //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(money_image, this.x, this.y, this.width, this.height);
@@ -73,50 +73,38 @@ export var btn_goMain_fromShop = {
   height: 60,
 };
 
-export var item_Mac = {
-  x: 27,
-  y: 6,
-  width: 164,
-  height: 121,
-};
+//json을 통해 ajax를 이용하여 Item_list 받아오기.
+export var item_list = [];
 
-export var item_Iphone = {
-  x: 36,
-  y: 158,
-  width: 145,
-  height: 154,
-};
+var xhr = new XMLHttpRequest();
 
-export var item_AirPods = {
-  x: 29,
-  y: 371,
-  width: 133,
-  height: 136,
-};
+//요청을 보낼 방식, 주소, 비동기여부 설정
+xhr.open("GET", "./src/item/list.json", true);
 
-export var item_GalaxyBook = {
-  x: 822,
-  y: 4,
-  width: 188,
-  height: 123,
-};
+//요청 전송
+xhr.send();
 
-export var item_GalaxyS = {
-  x: 827,
-  y: 159,
-  width: 169,
-  height: 157,
-};
-
-export var item_Buds = {
-  x: 857,
-  y: 346,
-  width: 128,
-  height: 159,
+//통신후 작업
+xhr.onload = () => {
+  //통신 성공
+  if (xhr.status == 200) {
+    console.log(xhr.response);
+    console.log("통신 성공");
+    var posts = JSON.parse(xhr.responseText);
+	  posts.forEach(function (data) {
+      item_list.push(data);
+	  });
+    console.log(item_list);
+  } else {
+    //통신 실패
+    console.log("통신 실패");
+  }
 };
 
 export function mainKeyMove(p, m, e) {
-  if(p == false){ return; }
+  if (p == false) {
+    return;
+  }
   var main_velocity = 10;
   if (e.ArrowLeft == true) {
     m.x -= main_velocity;
@@ -165,4 +153,4 @@ export function isInside(pos, rect) {
   return false;
 }
 
-export {Man, Money};
+export { Man, Money };
