@@ -1,6 +1,6 @@
 [
   {
-    "name": "item_Mac",
+    "name": "MacBook Pro13",
     "x": 27,
     "y": 6,
     "width": 164,
@@ -8,7 +8,7 @@
   },
 
   {
-    "name": "item_Iphone",
+    "name": "iPhone13",
     "x": 36,
     "y": 158,
     "width": 145,
@@ -16,7 +16,7 @@
   },
 
   {
-    "name": "item_AirPods",
+    "name": "AirPods",
     "x": 29,
     "y": 371,
     "width": 133,
@@ -24,7 +24,7 @@
   },
 
   {
-    "name": "item_GalaxyBook",
+    "name": "Galaxy Book Pro 360",
     "x": 822,
     "y": 4,
     "width": 188,
@@ -32,7 +32,7 @@
   },
 
   {
-    "name": "item_GalaxyS",
+    "name": "Galaxy S22 Ultra",
     "x": 827,
     "y": 159,
     "width": 169,
@@ -40,7 +40,7 @@
   },
 
   {
-    "name": "item_Buds",
+    "name": "Galaxy Buds",
     "x": 857,
     "y": 346,
     "width": 128,

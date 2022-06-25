@@ -40,18 +40,12 @@ function shopFrame() {
     icon_man.y = 228;
     canvas.style.backgroundImage = "url('./src/img/mainBackground.jpg')";
     return;
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_Mac)) {
-    console.log("Mac");
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_Iphone)) {
-    console.log("Iphone");
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_AirPods)) {
-    console.log("AirPods");
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_GalaxyBook)) {
-    console.log("GalaxyBook");
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_GalaxyS)) {
-    console.log("GalaxyS");
-  } else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.item_Buds)) {
-    console.log("Buds");
   }
+  GAMEOBJECT.item_list.forEach((item)=>{
+    if(GAMEOBJECT.isInside(icon_man, item)){
+      gameMessage.innerHTML = `${item.name}을 구매하시려면 Y를 눌러주세요!`;
+      dpMsgForNsec(2);
+    }
+  });
   icon_man.draw();
 }
