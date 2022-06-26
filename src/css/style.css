@@ -53,10 +53,10 @@ body{
 
 .gameMessage{
   position : fixed;
-  left : 318px;
   top : 33px;
   font-size : 30px;
-  background-color : white;
+  width: 1050px;
+  text-align: center;
 }
 
 #no-support{
