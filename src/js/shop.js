@@ -20,7 +20,6 @@ export function shop() {
 }
 
 var animation;
-
 function shopFrame() {
   animation = requestAnimationFrame(shopFrame);
   GAMEOBJECT.ctx.clearRect(
@@ -43,8 +42,12 @@ function shopFrame() {
   }
   GAMEOBJECT.item_list.forEach((item)=>{
     if(GAMEOBJECT.isInside(icon_man, item)){
-      gameMessage.innerHTML = `${item.name}을 구매하시려면 Y를 눌러주세요!`;
+      gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
       dpMsgForNsec(2);
+      if(main.keydown.y == true){
+        gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
+        dpMsgForNsec(2);
+      }
     }
   });
   icon_man.draw();

@@ -6,6 +6,7 @@ var keydown = {
   ArrowRight: false,
   ArrowUp: false,
   ArrowDown: false,
+  y: false,
 };
 var GameInfo = {
   score: 0,
