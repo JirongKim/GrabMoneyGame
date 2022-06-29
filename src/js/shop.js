@@ -41,9 +41,11 @@ function shopFrame() {
     return;
   }
   GAMEOBJECT.item_list.forEach((item)=>{
-    if(!main.GameInfo.hasOwnProperty(item.name)){ main.GameInfo[item.name] = 0; }
     if(GAMEOBJECT.isInside(icon_man, item)){
-      if(main.GameInfo[item.name] != 1){
+      console.log(main.GameInfo);
+      if(main.GameInfo[item.name] == 0){
+        gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
+        dpMsgForNsec(2);
         if(main.keydown.y == true){
           gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
           dpMsgForNsec(2);
@@ -51,8 +53,7 @@ function shopFrame() {
         }
       }
       else{
-        gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
-        dpMsgForNsec(2);
+        //none
       }
     }
   });

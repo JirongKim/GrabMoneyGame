@@ -1,3 +1,5 @@
+import * as main from "./main.js";
+
 export var canvas = document.querySelector("#canvas");
 export var ctx = canvas.getContext("2d");
 
@@ -93,6 +95,7 @@ xhr.onload = () => {
     var posts = JSON.parse(xhr.responseText);
 	  posts.forEach(function (data) {
       item_list.push(data);
+      main.GameInfo[data.name] = 0;
 	  });
     console.log(item_list);
   } else {
