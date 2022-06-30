@@ -40,6 +40,7 @@ function shopFrame() {
     canvas.style.backgroundImage = "url('./src/img/mainBackground.jpg')";
     return;
   }
+
   GAMEOBJECT.item_list.forEach((item)=>{
     if(GAMEOBJECT.isInside(icon_man, item)){
       console.log(main.GameInfo);
@@ -47,9 +48,15 @@ function shopFrame() {
         gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
         dpMsgForNsec(2);
         if(main.keydown.y == true){
-          gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
-          dpMsgForNsec(2);
-          main.GameInfo[item.name] = 1;
+          if(Number(window.localStorage.getItem('money')) >= item.price){
+            gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
+            dpMsgForNsec(2);
+            main.GameInfo[item.name] = 1;
+          }
+          else{
+            gameMessage.innerHTML = `잔액이 부족합니다!`;
+            dpMsgForNsec(2);
+          }
         }
       }
       else{
