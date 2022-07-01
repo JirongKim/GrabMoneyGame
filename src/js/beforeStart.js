@@ -2,6 +2,7 @@ import * as main from "./main.js";
 import gameStart from "./gameStart.js";
 import * as GAMEOBJECT from './gameObject.js';
 import { Man, Money, mainKeyMove } from "./gameObject.js";
+import { gameMessage,dpMsgForNsec } from "./showGameInfo.js";
 import { shop } from "./shop.js";
 
 var icon_man = new Man();
@@ -35,6 +36,11 @@ export function mainFrame() {
   }
   else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goRoom)) {
     console.log("room");
+  }
+  else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain)) {
+    console.log("main");
+    gameMessage.innerHTML = `현재 위치가 대기실입니다.`;
+    dpMsgForNsec(2);
   }
   else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goShop)) {
     if (main.GameInfo.isShop == false) {
