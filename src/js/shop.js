@@ -20,6 +20,7 @@ export function shop() {
 }
 
 var animation;
+var timer = 0;
 function shopFrame() {
   animation = requestAnimationFrame(shopFrame);
   GAMEOBJECT.ctx.clearRect(
@@ -41,21 +42,24 @@ function shopFrame() {
     return;
   }
 
+  
   GAMEOBJECT.item_list.forEach((item)=>{
     if(GAMEOBJECT.isInside(icon_man, item)){
-      console.log(main.GameInfo);
       if(main.GameInfo[item.name] == 0){
-        gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
-        dpMsgForNsec(2);
+        if(gameMessage.innerHTML != `${item.name}을 살 수 없습니다. 잔액이 부족합니다!`){
+          gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
+        }
+        gameMessage.classList.remove("hidden");
+        timer = 0;
         if(main.keydown.y == true){
           if(Number(window.localStorage.getItem('money')) >= item.price){
             gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
-            dpMsgForNsec(2);
+            timer = 0;
             main.GameInfo[item.name] = 1;
           }
           else{
-            gameMessage.innerHTML = `잔액이 부족합니다!`;
-            dpMsgForNsec(2);
+            gameMessage.innerHTML = `${item.name}을 살 수 없습니다. 잔액이 부족합니다!`;
+            timer = 0;
           }
         }
       }
@@ -64,5 +68,10 @@ function shopFrame() {
       }
     }
   });
+
+  timer++;
+  if(timer == 120){
+    gameMessage.classList.add("hidden");
+  }
   icon_man.draw();
 }
