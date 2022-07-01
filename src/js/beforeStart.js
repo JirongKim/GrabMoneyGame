@@ -4,6 +4,7 @@ import * as GAMEOBJECT from './gameObject.js';
 import { Man, Money, mainKeyMove } from "./gameObject.js";
 import { gameMessage,dpMsgForNsec } from "./showGameInfo.js";
 import { shop } from "./shop.js";
+import { room } from "./room.js";
 
 var icon_man = new Man();
 icon_man.x = 464;
@@ -35,7 +36,15 @@ export function mainFrame() {
     }
   }
   else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goRoom)) {
-    console.log("room");
+    if (main.GameInfo.isRoom == false) {
+      icon_man_off();
+      icon_man.x = 464;
+      icon_man.y = 356;
+      main.GameInfo.isRoom = true;
+      main.GameInfo.beforePlaying = false;
+      room();
+    }
+    console.log("shop");
   }
   else if (GAMEOBJECT.isInside(icon_man, GAMEOBJECT.btn_goMain)) {
     console.log("main");

@@ -13,6 +13,7 @@ var GameInfo = {
   leftTime: DEF.DEFAULT_TIME,
   isPlaying: false,
   isShop: false,
+  isRoom: false,
   beforePlaying: true,
 };
 
