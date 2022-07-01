@@ -1,7 +1,7 @@
 import * as main from "./main.js";
 import * as DEF from "./define.js";
 import * as GAMEOBJECT from "./gameObject.js";
-import { showGameInfo, gameMessage, dpMsgForNsec } from "./showGameInfo.js";
+import { showGameInfo, gameMessage, dpMsgForNsec, cashStatus } from "./showGameInfo.js";
 import * as playAudio from "./playAudio.js";
 import { icon_man_off, icon_man_on } from "./beforeStart.js";
 
@@ -56,6 +56,9 @@ function shopFrame() {
             gameMessage.innerHTML = `${item.name}를 구매하셨습니다!`;
             timer = 0;
             main.GameInfo[item.name] = 1;
+            var havingMoney = window.localStorage.getItem('money');
+            window.localStorage.setItem('money', Number(havingMoney) - item.price);
+            cashStatus.innerHTML = (Number(window.localStorage.getItem('money')) * 10000);
           }
           else{
             gameMessage.innerHTML = `${item.name}을 살 수 없습니다. 잔액이 부족합니다!`;
