@@ -46,7 +46,7 @@ function shopFrame() {
   GAMEOBJECT.item_list.forEach((item)=>{
     if(GAMEOBJECT.isInside(icon_man, item)){
       if(main.GameInfo[item.name] == 0){
-        if(gameMessage.innerHTML != `${item.name}을 살 수 없습니다. 잔액이 부족합니다!`){
+        if(gameMessage.innerHTML != `${item.name}을 살 수 없습니다. <br>잔액이 부족합니다!`){
           gameMessage.innerHTML = `${item.name}의 가격은 ${item.price}만원 입니다.<br>구매하시려면 Y를 눌러주세요!`;
         }
         gameMessage.classList.remove("hidden");

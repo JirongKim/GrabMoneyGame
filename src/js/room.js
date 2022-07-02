@@ -42,5 +42,14 @@ function roomFrame() {
     return;
   }
 
+  GAMEOBJECT.item_list.forEach((item)=>{
+    if(main.GameInfo[item.name] == 1){
+      // console.log(item);
+      var item_image = new Image();
+      item_image.src = `./src/img/${item.name}.png`;
+      GAMEOBJECT.ctx.drawImage(item_image, item.x, item.y, item.width, item.height);
+    }
+  });
+
   icon_man.draw();
 }
