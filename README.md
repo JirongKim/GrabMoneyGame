@@ -1,6 +1,6 @@
 # GrabMoneyGame
 Vanilla javascript로 구현한 돈줍기 게임입니다.<br>
-구현기간 : 2022년 6월 11일 ~ <br>
+구현기간 : 2022년 6월 11일 ~ 2022년 7월 1일<br>
 사용언어 : HTML/CSS/Javascript <br><br>
 
 ## 게임설명
